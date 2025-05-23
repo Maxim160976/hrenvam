@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hrenvam — HNM</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fdfdfd;
+      color: #222;
+      text-align: center;
+    }
+    .logo {
+      width: 100px;
+      margin: 20px auto 10px;
+    }
+    .lang-switcher {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .lang-switcher button {
+      margin: 0 5px;
+      padding: 4px 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    .buttons {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .telegram {
+      background: #0088cc;
+      color: white;
+    }
+    .buy {
+      background: #000;
+      color: #fff;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,0,0,0.4); }
+      70% { transform: scale(1.05); box-shadow: 0 0 15px 5px rgba(0,0,0,0.2); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+    }
+    .gallery {
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 120px;
+      margin: 5px;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .manifesto {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+      .buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .gallery img {
+        width: 100px;
+      }
+      .section {
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLang('ru')">RU</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+
+  <img src="logo_hnm_white.png" alt="Logo" class="logo" />
+  <h1 id="title">Hrenvam — Мы возвращаемся!</h1>
+
+  <div class="buttons">
+    <a id="telegramBtn" href="https://t.me/hrenvamHNM" class="button telegram" target="_blank">Telegram</a>
+    <a id="buyBtn" href="https://t.me/blum/app?startapp=memepadjetton_HNM_dcitm-ref_iTVbv46Gne" class="button buy" target="_blank">Купить токен</a>
+  </div>
+
+  <div class="gallery">
+    <img src="nft_ghost.png" alt="NFT Ghost" />
+    <img src="nft_coder.png" alt="NFT Coder" />
+    <img src="nft_zombie.png" alt="NFT Zombie" />
+    <img src="nft_og.png" alt="NFT OG" />
+    <img src="nft_point.png" alt="NFT Point" />
+    <img src="nft_screamer.png" alt="NFT Screamer" />
+  </div>
+
+  <div class="section manifesto">
+    <h2 id="manifestoTitle">Манифест</h2>
+    <div id="manifestoText" class="manifesto">
+Мы — те, кто БОРОЛСЯ. Кто видел взлёты и падения блокчейна. Кто верил, но был предан. Кто запускал, но сгорал.<br><br>
+Мы не инвесторы. Не трейдеры. Не стартаперы. Мы — люди, которые всё ещё верят в основную идею блокчейна — СВОБОДУ.<br><br>
+HNM — это не просто токен. Это крик в пустоту: "Я всё ещё здесь!"<br><br>
+Это символ для тех, у кого опустились руки, но в глубине осталась искра.<br><br>
+Для тех, кто шепчет: "Hren vam, а не разочарование в идее децентрализации."<br><br>
+Мы не обещаем иксы. Мы не зовём в секту.<br><br>
+Мы строим место силы — для тех, кто хочет вернуть себе веру в блокчейн, в людей и в себя.<br><br>
+Это не проект. Это — сопротивление выгоранию.<br><br>
+Это — платформа для честных разговоров, свежих идей и дерзких экспериментов.<br><br>
+Это — пространство, где ты СНОВА ВАЖЕН, даже если просто читаешь, молчишь, или начинаешь с нуля.<br><br>
+Если ты чувствуешь, что всё ещё можешь — ТЫ один из нас.<br><br>
+Нам говорят – Hrenvam(HNM), но мы ВОЗВРАЩАЕМСЯ.
+</div>
+  </div>
+
+  <div class="section" id="tokenomicsSection"></div>
+  <div class="section" id="roadmapSection"></div>
+
+  <script>
+    const translations = {
+      ru: {
+        title: "Hrenvam — Мы возвращаемся!",
+        buyBtn: "Купить токен",
+        telegramBtn: "Telegram",
+        manifestoTitle: "Манифест",
+        manifestoText: `
+Мы — те, кто БОРОЛСЯ. Кто видел взлёты и падения блокчейна. Кто верил, но был предан. Кто запускал, но сгорал.<br><br>
+Мы не инвесторы. Не трейдеры. Не стартаперы. Мы — люди, которые всё ещё верят в основную идею блокчейна — СВОБОДУ.<br><br>
+HNM — это не просто токен. Это крик в пустоту: "Я всё ещё здесь!"<br><br>
+Это символ для тех, у кого опустились руки, но в глубине осталась искра.<br><br>
+Для тех, кто шепчет: "Hren vam, а не разочарование в идее децентрализации."<br><br>
+Мы не обещаем иксы. Мы не зовём в секту.<br><br>
+Мы строим место силы — для тех, кто хочет вернуть себе веру в блокчейн, в людей и в себя.<br><br>
+Это не проект. Это — сопротивление выгоранию.<br><br>
+Это — платформа для честных разговоров, свежих идей и дерзких экспериментов.<br><br>
+Это — пространство, где ты СНОВА ВАЖЕН, даже если просто читаешь, молчишь, или начинаешь с нуля.<br><br>
+Если ты чувствуешь, что всё ещё можешь — ТЫ один из нас.<br><br>
+Нам говорят – Hrenvam(HNM), но мы ВОЗВРАЩАЕМСЯ.
+`,
+        tokenomics: `<h2>Токеномика</h2><div class='manifesto'>
+Токен не управляется командой.<br>
+Он управляется теми, кто всё ещё верит в свободу блокчейна.<br><br>
+<strong>HNM — это ключ. Решения принимает сообщество.</strong><br>
+Мы не даём roadmap. Мы даём возможность.<br><br>
+Присоединяйся — и создавай путь с нами.<br>
+Каждый, кто держит HNM или участвует в жизни проекта,<br>
+имеет право голоса и может влиять на дальнейшее развитие.
+</div>`,
+        roadmap: `<h2>🗺 Дорожная карта</h2><div class='manifesto'>
+<ul>
+  <li><strong>Q2 2025:</strong> Развитие сайта, Telegram, создание сообщества</li>
+  <li><strong>Q3 2025:</strong> Решение сообщества</li>
+  <li><strong>Q4 2025:</strong> Решение сообщества</li>
+  <li><strong>2026+:</strong> Решение сообщества</li>
+</ul>
+</div>`
+      },
+      en: {
+        title: "Hrenvam — We Are Coming Back!",
+        buyBtn: "Buy Token",
+        telegramBtn: "Telegram",
+        manifestoTitle: "Manifesto",
+        manifestoText: `
+We are the ones who FOUGHT.<br><br>
+Who witnessed the rise and fall of blockchain.<br><br>
+Who believed — and were betrayed.<br><br>
+Who launched — and burned out.<br><br>
+We are not investors. Not traders. Not startup founders.<br><br>
+We are people who still believe in the core idea of blockchain — FREEDOM.<br><br>
+HNM is not just a token.<br><br>
+It’s a scream into the void: “I’m still here!”<br><br>
+It’s a symbol for those whose hands have dropped, but still carry a spark inside.<br><br>
+For those who whisper:<br><br>
+“Hren vam — not disappointment in decentralization.”<br><br>
+We don’t promise 10000x gains.<br><br>
+We’re not preaching a cult.<br><br>
+We are building a place of power — for those who want to reclaim their faith in blockchain, in people, and in themselves.<br><br>
+This is not a project.<br><br>
+This is resistance to burnout.<br><br>
+A platform for honest conversations, fresh ideas, and bold experiments.<br><br>
+A space where YOU MATTER AGAIN — even if you’re just reading, silent, or starting from scratch.<br><br>
+If you feel you still can — YOU are one of us.<br><br>
+They say: Hrenvam(HNM).<br><br>
+But we’re COMING BACK.
+`,
+        tokenomics: `<h2>Tokenomics</h2><div class='manifesto'>
+          <ul>
+            <li><strong>🔒 HNM Holders:</strong> access to giveaways, NFT drops, and exclusive activities.</li>
+            <li><strong>🎨 NFT Holders:</strong> receive bonuses and unique perks.</li>
+            <li><strong>🔥 Meme Creators:</strong> rewarded with NFTs and community recognition.</li>
+            <li><strong>🧠 Telegram Activists:</strong> gain roles, influence, and voting participation.</li>
+          </ul>
+          <p><em>HNM is your key to digital identity and the movement.</em></p>
+        </div>`,
+        roadmap: `<h2>Roadmap</h2><div class='manifesto'>
+          <ul>
+            <li><strong>Q2 2025:</strong> Launch website and Telegram, first wave of NFTs.</li>
+            <li><strong>Q3 2025:</strong> Airdrop, AMA sessions, closed club access.</li>
+            <li><strong>Q4 2025:</strong> DAO, partnerships, gamification and Web3 expansion.</li>
+          </ul>
+        </div>`
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById("title").textContent = translations[lang].title;
+      document.getElementById("buyBtn").textContent = translations[lang].buyBtn;
+      document.getElementById("telegramBtn").textContent = translations[lang].telegramBtn;
+      document.getElementById("manifestoTitle").textContent = translations[lang].manifestoTitle;
+      document.getElementById("manifestoText").innerHTML = translations[lang].manifestoText;
+      document.getElementById("tokenomicsSection").innerHTML = translations[lang].tokenomics;
+      document.getElementById("roadmapSection").innerHTML = translations[lang].roadmap;
+    }
+
+    // Автоустановка языка по умолчанию
+    document.addEventListener("DOMContentLoaded", () => {
+      setLang('ru');
+    });
+  </script>
+</body>
+</html>
